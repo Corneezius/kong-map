@@ -1,18 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Network } from 'ionic-native';
+// Inject Platform to detect whether user is running on IOS or Android
+import { Platform } from 'ionic-angular';
 
-/*
-  Generated class for the ConnectivityService provider.
+declare var Connection;
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class ConnectivityService {
 
-  constructor(public http: Http) {
-    console.log('Hello ConnectivityService Provider');
+  onDevice: boolean;
+
+  constructor(public platform: Platform){
+    this.onDevice = this.platform.is('cordova');
   }
 
+  // functions check to see if user is onLine
+
+  // import service into necessary classes..
+
+  isOnline(): boolean {
+    if(this.onDevice && Network.connection){
+      return Network.connection !== Connection.NONE;
+    } else {
+      return navigator.onLine;
+    }
+  }
+
+  isOffline(): boolean {
+    if(this.onDevice && Network.connection){
+      return Network.connection === Connection.NONE;
+    } else {
+      return !navigator.onLine;
+    }
+  }
 }

@@ -24,4 +24,6 @@ export class HomePage {
  constructor(public nav: NavController, public connectivityService: ConnectivityService) {
      this.loadGoogleMaps();
    }
+
+   
 }
