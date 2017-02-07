@@ -20,8 +20,8 @@ export class HomePage {
  mapInitialised: boolean = false;
  apiKey: any;
 
+// loadGoogleMaps function triggers logic
  constructor(public nav: NavController, public connectivityService: ConnectivityService) {
      this.loadGoogleMaps();
    }
 }
-  
