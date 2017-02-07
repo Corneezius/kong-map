@@ -28,7 +28,7 @@ export class HomePage {
      Geolocation.getCurrentPosition().then((position) => {
 
     // create a LatLng object to represent location on map
-    let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
 
     let mapOptions = {
       center: latLng,
