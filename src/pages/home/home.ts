@@ -74,7 +74,7 @@ export class HomePage {
   }
 
   }
-
+  // initializes map
   initMap(){
 
     this.mapInitialised = true;
@@ -92,6 +92,20 @@ export class HomePage {
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
     });
+
+  }
+
+  addMarker(){
+
+  let marker = new google.maps.Marker({
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    position: this.map.getCenter()
+  });
+
+  let content = "<h4>Information!</h4>";
+
+  this.addInfoWindow(marker, content);
 
   }
 
@@ -131,7 +145,9 @@ export class HomePage {
 
     document.addEventListener('online', onOnline, false);
     document.addEventListener('offline', onOffline, false);
-
   }
+
+
+
 
 }
