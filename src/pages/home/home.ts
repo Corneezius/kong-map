@@ -19,7 +19,7 @@ export class HomePage {
 
   }
 
-  ionViewLoaded(){
+  ionViewDidLoad(){
     this.loadMap();
   }
 
@@ -56,6 +56,7 @@ export class HomePage {
   this.addInfoWindow(marker, content);
 }
   addInfoWindow(marker, content) {
+
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
@@ -64,5 +65,5 @@ export class HomePage {
       infoWindow.open(this.map, marker);
     });
 
-  };
+  }
 }
