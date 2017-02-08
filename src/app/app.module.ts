@@ -6,7 +6,7 @@ import { MapPage } from '../pages/map/map';
 import { ListPage } from '../pages/list/list';
 import { Locations } from '../providers/locations';
 import { GoogleMaps } from '../providers/google-maps';
-import { ConnectivityService } from '../providers/connectivity-service';
+import { Connectivity } from '../providers/connectivity';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,6 @@ import { ConnectivityService } from '../providers/connectivity-service';
     MapPage,
     ListPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, ConnectivityService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity]
 })
 export class AppModule {}

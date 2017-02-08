@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ConnectivityService } from './connectivity-service';
+import { Connectivity } from './connectivity';
 import { Geolocation } from 'ionic-native';
 
 declare var google;
@@ -16,7 +16,7 @@ export class GoogleMaps {
   markers: any = [];
   apiKey: string;
 
-  constructor(public connectivityService: ConnectivityService) {
+  constructor(public connectivityService: Connectivity) {
 
   }
 
