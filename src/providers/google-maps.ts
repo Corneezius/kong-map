@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ConnectivityService } from '../../providers/connectivity-service';
+import { ConnectivityService } from './connectivity-service';
 import { Geolocation } from 'ionic-native';
-
-
-// created a member variable to hold map
 
 declare var google;
 
