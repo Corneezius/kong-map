@@ -2,17 +2,34 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Locations provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Locations {
 
-  constructor(public http: Http) {
-    console.log('Hello Locations Provider');
-  }
+    data: any;
+
+    // handle loading the data into the application by making a HTTP request to the JSON file
+
+    constructor(public http: Http) {
+
+    }
+
+    load(){
+
+        if(this.data){
+            return Promise.resolve(this.data);
+        }
+
+        return new Promise(resolve => {
+          // convert the JSON string into a Javascript object by mapping the response and calling the .json() method
+            this.http.get('assets/data/locations.json').map(res => res.json()).subscribe(data => {
+
+                this.data = data.locations
+                resolve(this.data);
+
+            });
+
+        });
+
+    }
 
 }
